@@ -1031,7 +1031,7 @@
 </head>
 <body>
 <audio id="bg-audio" autoplay loop>
-    <source src="https://files.catbox.moe/chyczo.mp3" type="audio/mpeg" />
+    <source src="https://files.catbox." type="audio/mpeg" />
     Browser Anda tidak mendukung audio.
   </audio>
 <header>
@@ -1974,5 +1974,55 @@ const audio = document.getElementById('bg-audio');
       tryPlayAudio();
     });
   </script>
+  <!-- AUDIO PLAYER -->
+<div class="custom-audio-player">
+  <audio id="myAudio" src="audio/music.mp3"></audio>
+  <button onclick="toggleAudio()" id="audioBtn" title="Play music">🎵</button>
+</div>
+
+<!-- CSS untuk posisi & style -->
+<style>
+  .custom-audio-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+  }
+
+  #audioBtn {
+    background-color: #ffffffcc;
+    border: none;
+    border-radius: 50%;
+    padding: 12px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+  }
+
+  #audioBtn:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.1);
+  }
+</style>
+
+<!-- JavaScript untuk kontrol audio -->
+<script>
+  let isPlaying = false;
+
+  function toggleAudio() {
+    const audio = document.getElementById("myAudio");
+    const btn = document.getElementById("audioBtn");
+
+    if (isPlaying) {
+      audio.pause();
+      btn.textContent = "🎵";
+    } else {
+      audio.play();
+      btn.textContent = "⏸️";
+    }
+    isPlaying = !isPlaying;
+  }
+</script>
 </body>
 </html>
